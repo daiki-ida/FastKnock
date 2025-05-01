@@ -158,6 +158,26 @@ wheels = [
 ]
 
 [[package]]
+name = "bokeh"
+version = "3.4.3"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "contourpy" },
+    { name = "jinja2" },
+    { name = "numpy" },
+    { name = "packaging" },
+    { name = "pandas" },
+    { name = "pillow" },
+    { name = "pyyaml" },
+    { name = "tornado" },
+    { name = "xyzservices" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/c1/a8/4f750e1febe3b8d448794a7b85cd0efd2eb649eb915c990bcdd3650a5f3b/bokeh-3.4.3.tar.gz", hash = "sha256:b7c22fb0f7004b04f12e1b7b26ee0269a26737a08ded848fb58f6a34ec1eb155", size = 6410715, upload_time = "2024-07-25T10:44:33.237Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/65/5d/e96520996607c9b894a4716ddedc447a68351b0a8729f26ac012c8e7041b/bokeh-3.4.3-py3-none-any.whl", hash = "sha256:c6f33817f866fc67fbeb5df79cd13a8bb592c05c591f3fd7f4f22b824f7afa01", size = 7017720, upload_time = "2024-07-25T10:44:29.542Z" },
+]
+
+[[package]]
 name = "cameo"
 version = "0.11.2"
 source = { registry = "https://pypi.org/simple" }
@@ -474,6 +494,7 @@ dependencies = [
     { name = "cobra" },
     { name = "cplex" },
     { name = "docplex" },
+    { name = "geckopy" },
     { name = "ipykernel" },
     { name = "jupyter" },
     { name = "matplotlib" },
@@ -482,6 +503,7 @@ dependencies = [
     { name = "pandas" },
     { name = "pip" },
     { name = "pulp" },
+    { name = "pytfa" },
     { name = "scikit-learn" },
     { name = "seaborn" },
 ]
@@ -492,6 +514,7 @@ requires-dist = [
     { name = "cobra", specifier = "==0.20.0" },
     { name = "cplex", specifier = ">=22.1.2.0" },
     { name = "docplex", specifier = ">=2.29.245" },
+    { name = "geckopy", specifier = ">=2.0.2" },
     { name = "ipykernel", specifier = ">=6.29.5" },
     { name = "jupyter", specifier = ">=1.1.1" },
     { name = "matplotlib", specifier = ">=3.9.4" },
@@ -500,6 +523,7 @@ requires-dist = [
     { name = "pandas", specifier = "==1.5.3" },
     { name = "pip", specifier = ">=25.1" },
     { name = "pulp", specifier = ">=3.1.1" },
+    { name = "pytfa", specifier = ">=0.9.4" },
     { name = "scikit-learn", specifier = ">=1.6.1" },
     { name = "seaborn", specifier = ">=0.13.2" },
 ]
@@ -537,6 +561,18 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/a7/b2/4140c69c6a66432916b26158687e821ba631a4c9273c474343badf84d3ba/future-1.0.0.tar.gz", hash = "sha256:bd2968309307861edae1458a4f8a4f3598c03be43b97521076aebf5d94c07b05", size = 1228490, upload_time = "2024-02-21T11:52:38.461Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/da/71/ae30dadffc90b9006d77af76b393cb9dfbfc9629f339fc1574a1c52e6806/future-1.0.0-py3-none-any.whl", hash = "sha256:929292d34f5872e70396626ef385ec22355a1fae8ad29e1a734c3e43f9fbc216", size = 491326, upload_time = "2024-02-21T11:52:35.956Z" },
+]
+
+[[package]]
+name = "geckopy"
+version = "2.0.2"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "cobra" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/47/20/421dda6919463302abb5530f74f380d7c0aaab95a1c5a4e79c83ad7b6b7a/geckopy-2.0.2.tar.gz", hash = "sha256:03413b8b226ad059fd3db6c642ed5a46c3a6bbe7d8cb7a4dfd941aabea990707", size = 582624, upload_time = "2021-02-18T09:54:57.055Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/49/36/021b8a2e719dc45ffe25b689c3b34c7206b683e1740d782a227cd5105901/geckopy-2.0.2-py2.py3-none-any.whl", hash = "sha256:53c9786d0157b3125ad872cbb1ed24c8a59a2041c5e3cd7f95dd7b2019c45032", size = 609417, upload_time = "2021-02-18T09:54:55.322Z" },
 ]
 
 [[package]]
@@ -1582,6 +1618,24 @@ wheels = [
 ]
 
 [[package]]
+name = "pytfa"
+version = "0.9.4"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "bokeh" },
+    { name = "cobra" },
+    { name = "networkx" },
+    { name = "optlang" },
+    { name = "pytest" },
+    { name = "scipy" },
+    { name = "tqdm" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/eb/0c/84eae17a513a2680bb233ea967adde148e5be341074cb37fa638cd22048f/pytfa-0.9.4.tar.gz", hash = "sha256:ddd05ba2eb2a9a28b4695fbf74b3b5b4b8e3948aa53879e2d548553a2a5f6f61", size = 3103083, upload_time = "2022-06-27T14:25:36.232Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/bb/ac/1d6a4a72f45bfa46a95d3cc9f29c113c5f4a4ece4ac7461b56ac61c2fa2c/pytfa-0.9.4-py2.py3-none-any.whl", hash = "sha256:f864f848a42f75d5822eed637567aac09f61b3f6c043325e31270128d6a6a77e", size = 82276, upload_time = "2022-06-27T14:25:22.57Z" },
+]
+
+[[package]]
 name = "python-dateutil"
 version = "2.9.0.post0"
 source = { registry = "https://pypi.org/simple" }
@@ -2010,6 +2064,18 @@ wheels = [
 ]
 
 [[package]]
+name = "tqdm"
+version = "4.67.1"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "colorama", marker = "sys_platform == 'win32'" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/a8/4b/29b4ef32e036bb34e4ab51796dd745cdba7ed47ad142a9f4a1eb8e0c744d/tqdm-4.67.1.tar.gz", hash = "sha256:f8aef9c52c08c13a65f30ea34f4e5aac3fd1a34959879d7e59e63027286627f2", size = 169737, upload_time = "2024-11-24T20:12:22.481Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/d0/30/dc54f88dd4a2b5dc8a0279bdd7270e735851848b762aeb1c1184ed1f6b14/tqdm-4.67.1-py3-none-any.whl", hash = "sha256:26445eca388f82e72884e0d580d5464cd801a3ea01e63e5601bdff9ba6a48de2", size = 78540, upload_time = "2024-11-24T20:12:19.698Z" },
+]
+
+[[package]]
 name = "traitlets"
 version = "5.14.3"
 source = { registry = "https://pypi.org/simple" }
@@ -2100,6 +2166,15 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/2d/8c/2692555c838db37fb56cc0cfd51c27367af7bc13f3489bec427b7475d4e0/widgetsnbextension-3.6.10.tar.gz", hash = "sha256:cc370876baee1d23d4c506c798ab7d08c355133c9a5e81474159ff75877593df", size = 783481, upload_time = "2024-10-22T08:13:01.013Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/93/1b/25d570ee8dce0f2ddadb967d6242cf6e10516db7897c7d9a6e3853b56bfc/widgetsnbextension-3.6.10-py2.py3-none-any.whl", hash = "sha256:91a283c2bb50b43ae415dfe69fb026ece0c14e0102987fb53127c7a71e82417d", size = 1556860, upload_time = "2024-10-22T08:12:57.753Z" },
+]
+
+[[package]]
+name = "xyzservices"
+version = "2025.4.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/00/af/c0f7f97bb320d14c089476f487b81f733238cc5603e0914f2e409f49d589/xyzservices-2025.4.0.tar.gz", hash = "sha256:6fe764713648fac53450fbc61a3c366cb6ae5335a1b2ae0c3796b495de3709d8", size = 1134722, upload_time = "2025-04-25T10:38:09.669Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/d6/7d/b77455d7c7c51255b2992b429107fab811b2e36ceaf76da1e55a045dc568/xyzservices-2025.4.0-py3-none-any.whl", hash = "sha256:8d4db9a59213ccb4ce1cf70210584f30b10795bff47627cdfb862b39ff6e10c9", size = 90391, upload_time = "2025-04-25T10:38:08.468Z" },
 ]
 
 [[package]]
