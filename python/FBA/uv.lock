@@ -504,8 +504,10 @@ dependencies = [
     { name = "pip" },
     { name = "pulp" },
     { name = "pytfa" },
+    { name = "ruamel-yaml" },
     { name = "scikit-learn" },
     { name = "seaborn" },
+    { name = "yaml2sbml" },
 ]
 
 [package.metadata]
@@ -524,8 +526,10 @@ requires-dist = [
     { name = "pip", specifier = ">=25.1" },
     { name = "pulp", specifier = ">=3.1.1" },
     { name = "pytfa", specifier = ">=0.9.4" },
+    { name = "ruamel-yaml", specifier = ">=0.18.10" },
     { name = "scikit-learn", specifier = ">=1.6.1" },
     { name = "seaborn", specifier = ">=0.13.2" },
+    { name = "yaml2sbml", specifier = ">=0.2.5" },
 ]
 
 [[package]]
@@ -1434,6 +1438,22 @@ wheels = [
 ]
 
 [[package]]
+name = "petab"
+version = "0.2.9"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "colorama" },
+    { name = "jsonschema" },
+    { name = "numpy" },
+    { name = "pandas" },
+    { name = "pyarrow" },
+    { name = "python-libsbml" },
+    { name = "pyyaml" },
+    { name = "sympy" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/02/3a/0c1f0b836f6ffd8c9881e133f921d7d116316cfa857e7ea009c721ce746d/petab-0.2.9.tar.gz", hash = "sha256:e92f2aa6ba57675164348123b44e0be82f0670eb532873c37003ee66fddff9f6", size = 104458, upload_time = "2024-03-06T19:44:05.892Z" }
+
+[[package]]
 name = "pexpect"
 version = "4.9.0"
 source = { registry = "https://pypi.org/simple" }
@@ -1555,6 +1575,23 @@ wheels = [
 ]
 
 [[package]]
+name = "pyarrow"
+version = "20.0.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/a2/ee/a7810cb9f3d6e9238e61d312076a9859bf3668fd21c69744de9532383912/pyarrow-20.0.0.tar.gz", hash = "sha256:febc4a913592573c8d5805091a6c2b5064c8bd6e002131f01061797d91c783c1", size = 1125187, upload_time = "2025-04-27T12:34:23.264Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/10/53/421820fa125138c868729b930d4bc487af2c4b01b1c6104818aab7e98f13/pyarrow-20.0.0-cp39-cp39-macosx_12_0_arm64.whl", hash = "sha256:1bcbe471ef3349be7714261dea28fe280db574f9d0f77eeccc195a2d161fd861", size = 30844702, upload_time = "2025-04-27T12:33:12.122Z" },
+    { url = "https://files.pythonhosted.org/packages/2e/70/fd75e03312b715e90d928fb91ed8d45c9b0520346e5231b1c69293afd4c7/pyarrow-20.0.0-cp39-cp39-macosx_12_0_x86_64.whl", hash = "sha256:a18a14baef7d7ae49247e75641fd8bcbb39f44ed49a9fc4ec2f65d5031aa3b96", size = 32287180, upload_time = "2025-04-27T12:33:20.597Z" },
+    { url = "https://files.pythonhosted.org/packages/c4/e3/21e5758e46219fdedf5e6c800574dd9d17e962e80014cfe08d6d475be863/pyarrow-20.0.0-cp39-cp39-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:cb497649e505dc36542d0e68eca1a3c94ecbe9799cb67b578b55f2441a247fbc", size = 41351968, upload_time = "2025-04-27T12:33:28.215Z" },
+    { url = "https://files.pythonhosted.org/packages/ac/f5/ed6a4c4b11f9215092a35097a985485bb7d879cb79d93d203494e8604f4e/pyarrow-20.0.0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:11529a2283cb1f6271d7c23e4a8f9f8b7fd173f7360776b668e509d712a02eec", size = 42415208, upload_time = "2025-04-27T12:33:37.04Z" },
+    { url = "https://files.pythonhosted.org/packages/44/e5/466a63668ba25788ee8d38d55f853a60469ae7ad1cda343db9f3f45e0b0a/pyarrow-20.0.0-cp39-cp39-manylinux_2_28_aarch64.whl", hash = "sha256:6fc1499ed3b4b57ee4e090e1cea6eb3584793fe3d1b4297bbf53f09b434991a5", size = 40708556, upload_time = "2025-04-27T12:33:46.483Z" },
+    { url = "https://files.pythonhosted.org/packages/e8/d7/4c4d4e4cf6e53e16a519366dfe9223ee4a7a38e6e28c1c0d372b38ba3fe7/pyarrow-20.0.0-cp39-cp39-manylinux_2_28_x86_64.whl", hash = "sha256:db53390eaf8a4dab4dbd6d93c85c5cf002db24902dbff0ca7d988beb5c9dd15b", size = 42291754, upload_time = "2025-04-27T12:33:55.4Z" },
+    { url = "https://files.pythonhosted.org/packages/07/d5/79effb32585b7c18897d3047a2163034f3f9c944d12f7b2fd8df6a2edc70/pyarrow-20.0.0-cp39-cp39-musllinux_1_2_aarch64.whl", hash = "sha256:851c6a8260ad387caf82d2bbf54759130534723e37083111d4ed481cb253cc0d", size = 42936483, upload_time = "2025-04-27T12:34:03.694Z" },
+    { url = "https://files.pythonhosted.org/packages/09/5c/f707603552c058b2e9129732de99a67befb1f13f008cc58856304a62c38b/pyarrow-20.0.0-cp39-cp39-musllinux_1_2_x86_64.whl", hash = "sha256:e22f80b97a271f0a7d9cd07394a7d348f80d3ac63ed7cc38b6d1b696ab3b2619", size = 44558895, upload_time = "2025-04-27T12:34:13.26Z" },
+    { url = "https://files.pythonhosted.org/packages/26/cc/1eb6a01c1bbc787f596c270c46bcd2273e35154a84afcb1d0cb4cc72457e/pyarrow-20.0.0-cp39-cp39-win_amd64.whl", hash = "sha256:9965a050048ab02409fb7cbbefeedba04d3d67f2cc899eff505cc084345959ca", size = 25785667, upload_time = "2025-04-27T12:34:19.739Z" },
+]
+
+[[package]]
 name = "pycparser"
 version = "2.22"
 source = { registry = "https://pypi.org/simple" }
@@ -1657,6 +1694,24 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/9e/de/d3144a0bceede957f961e975f3752760fbe390d57fbe194baf709d8f1f7b/python_json_logger-3.3.0.tar.gz", hash = "sha256:12b7e74b17775e7d565129296105bbe3910842d9d0eb083fc83a6a617aa8df84", size = 16642, upload_time = "2025-03-07T07:08:27.301Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/08/20/0f2523b9e50a8052bc6a8b732dfc8568abbdc42010aef03a2d750bdab3b2/python_json_logger-3.3.0-py3-none-any.whl", hash = "sha256:dd980fae8cffb24c13caf6e158d3d61c0d6d22342f932cb6e9deedab3d35eec7", size = 15163, upload_time = "2025-03-07T07:08:25.627Z" },
+]
+
+[[package]]
+name = "python-libsbml"
+version = "5.20.4"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/5d/74/1bf1b9883de7bc928e1727e4502c690ec09a8f7b9f2d53edb8fa452d23c3/python_libsbml-5.20.4.tar.gz", hash = "sha256:b055f98fe65be258ae266fde343157cbf41e3ed3fc19b3698f2a66afc74cdaf8", size = 48669079, upload_time = "2024-08-12T20:41:54.28Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/94/47/c55da9ac26a7992f720000338f92b8eeb87c50fced41eb7cf56a6e9b4c67/python_libsbml-5.20.4-cp39-cp39-macosx_10_9_x86_64.whl", hash = "sha256:58dbe1413e4502b25dc591152646d493bce3f73d382dcc69fd760bd951ecb4ab", size = 6320387, upload_time = "2024-08-12T20:41:36.792Z" },
+    { url = "https://files.pythonhosted.org/packages/fc/f7/e7af5fa8941eeef5883eab1c6dc241f58950715c72f793e4d89f04cb51b0/python_libsbml-5.20.4-cp39-cp39-macosx_11_0_arm64.whl", hash = "sha256:579a4f877ac0e3d40cf4b3352ab48bd4a4c849ceafdb9d175e62d527a7da1711", size = 6075830, upload_time = "2024-08-12T20:41:38.441Z" },
+    { url = "https://files.pythonhosted.org/packages/44/d1/32b0f68766364b51adcf147717b4f56f374df7ae78a08436e8719f6df888/python_libsbml-5.20.4-cp39-cp39-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:28af60d5d4873f43ac67f9f48822dc8c33d257b8b66552f06a50dcc5cb49e696", size = 7446106, upload_time = "2024-08-12T20:36:14.003Z" },
+    { url = "https://files.pythonhosted.org/packages/a6/be/10f32360a55cb8b1395b2ba26476455cec3a870b518eb0d910e277f20fc8/python_libsbml-5.20.4-cp39-cp39-manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:d5c9a214f93cf1f6ff71855cb9f38950d506e1cad6d3d89f6491ebb17813150e", size = 7838464, upload_time = "2024-08-12T20:41:40.344Z" },
+    { url = "https://files.pythonhosted.org/packages/da/c9/5e56a08bf385080b9a9a1b8e41eb04c4a4bd649a7f6eb46dc5f72c8db420/python_libsbml-5.20.4-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:d572f0f3991f00bf742aef79b5067c2a1f53aaea0db41bf7004adace9cf17f87", size = 7989947, upload_time = "2024-08-12T20:41:41.9Z" },
+    { url = "https://files.pythonhosted.org/packages/43/64/f8404da7ba27cb4905df4713048e8194a9c711c7dae312d33b2b3a821bd6/python_libsbml-5.20.4-cp39-cp39-musllinux_1_1_i686.whl", hash = "sha256:50d6422c78bbf1bed373a3528370752f2e4a3843758ab03506dbf0b8e305a8f4", size = 8626062, upload_time = "2024-08-12T20:41:44.295Z" },
+    { url = "https://files.pythonhosted.org/packages/e8/10/ff8ab1d3a721b60827124c14f5252b7d332f3351c1e517ca4d429f1ba4c2/python_libsbml-5.20.4-cp39-cp39-musllinux_1_1_x86_64.whl", hash = "sha256:b25c23f71ea1e257c1354a6d62a1f80981664aa60450651774833d864848d956", size = 8601610, upload_time = "2024-08-12T20:41:47.98Z" },
+    { url = "https://files.pythonhosted.org/packages/be/dd/659e49b36e545bdecdc3394aae0a51d55655fb7e6a5e122eb417e2ea17ea/python_libsbml-5.20.4-cp39-cp39-win32.whl", hash = "sha256:f5dbfa3cd086c751550b1d0f1e51bbe008d79bd66a42d5b472172544b6145ab1", size = 5224477, upload_time = "2024-08-12T20:41:49.913Z" },
+    { url = "https://files.pythonhosted.org/packages/d9/f4/93b12b7433288cd57c91d66401cc029fed14163b47753fdeecb7b9ec72e8/python_libsbml-5.20.4-cp39-cp39-win_amd64.whl", hash = "sha256:0599b57885b98b1bd5aac8575ff9be78b6eaded6dd0b652165604468f6e0853b", size = 5947625, upload_time = "2024-08-12T20:41:51.573Z" },
+    { url = "https://files.pythonhosted.org/packages/8a/38/2d9c53cd3e4f3d2bb3e0dbea03ec7ec9de4507ba6e5ce73b1982e858298f/python_libsbml-5.20.4-pp39-pypy39_pp73-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:207a6cd61928ebefa7c0fffd6d257c1273704d8cfa9164175557b7d302ac1e5a", size = 7446971, upload_time = "2024-08-12T20:36:21.894Z" },
 ]
 
 [[package]]
@@ -2175,6 +2230,21 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/00/af/c0f7f97bb320d14c089476f487b81f733238cc5603e0914f2e409f49d589/xyzservices-2025.4.0.tar.gz", hash = "sha256:6fe764713648fac53450fbc61a3c366cb6ae5335a1b2ae0c3796b495de3709d8", size = 1134722, upload_time = "2025-04-25T10:38:09.669Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/d6/7d/b77455d7c7c51255b2992b429107fab811b2e36ceaf76da1e55a045dc568/xyzservices-2025.4.0-py3-none-any.whl", hash = "sha256:8d4db9a59213ccb4ce1cf70210584f30b10795bff47627cdfb862b39ff6e10c9", size = 90391, upload_time = "2025-04-25T10:38:08.468Z" },
+]
+
+[[package]]
+name = "yaml2sbml"
+version = "0.2.5"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "pandas" },
+    { name = "petab" },
+    { name = "python-libsbml" },
+    { name = "pyyaml" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/64/bd/165ac56cd09ea010a2af8b58abdfc4384f7511814e9fe6d697237f667106/yaml2sbml-0.2.5.tar.gz", hash = "sha256:c0096cca4b380fbbb5a731677294ae791cea784da38dff5003d63c4b911a095f", size = 22791, upload_time = "2021-07-30T11:39:58.976Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/1e/13/68cc9e1666ec81eef9da71796b0e94bec97b338f8b77be74c2af36967c49/yaml2sbml-0.2.5-py3-none-any.whl", hash = "sha256:7cf6cdb145b6fa467628a4ee8b6d95f9a13cccd29b7dfe678e0ed128c5ae5f01", size = 24891, upload_time = "2021-07-30T11:39:57.31Z" },
 ]
 
 [[package]]

@@ -19,6 +19,8 @@ dependencies = [
     "pip>=25.1",
     "pulp>=3.1.1",
     "pytfa>=0.9.4",
+    "ruamel-yaml>=0.18.10",
     "scikit-learn>=1.6.1",
     "seaborn>=0.13.2",
+    "yaml2sbml>=0.2.5",
 ]
