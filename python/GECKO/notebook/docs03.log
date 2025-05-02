@@ -1,0 +1,1 @@
+INFO:cobra.core.model:The current solver interface glpk doesn't support setting the optimality tolerance.

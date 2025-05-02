@@ -5,10 +5,15 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = "==3.9.22"
 dependencies = [
+    "cameo>=0.11.2",
     "cobra==0.27.0",
+    "cplex>=22.1.2.0",
     "geckopy",
     "ipykernel>=6.29.5",
     "jupyter>=1.1.1",
+    "matplotlib>=3.9.4",
+    "plotly>=6.0.1",
+    "pytfa>=0.9.4",
     "scipy>=1.13.1",
 ]
 
