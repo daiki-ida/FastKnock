@@ -8,6 +8,7 @@ dependencies = [
     "cameo>=0.11.2",
     "cobra==0.27.0",
     "cplex>=22.1.2.0",
+    "docplex>=2.29.245",
     "geckopy",
     "ipykernel>=6.29.5",
     "jupyter>=1.1.1",

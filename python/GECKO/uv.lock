@@ -426,6 +426,15 @@ wheels = [
 ]
 
 [[package]]
+name = "docplex"
+version = "2.29.245"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "six" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/5c/b1/44817f69ebe0e00f90834b9c4bb58be419c046e042c3b6561ebd50f3039f/docplex-2.29.245.tar.gz", hash = "sha256:a426fe3fa59050f5fe77315f7ba1dc7daa357c7d8d0ed066a58356471d853e4a", size = 645894, upload-time = "2025-04-29T15:13:14.812Z" }
+
+[[package]]
 name = "escher"
 version = "1.8.1"
 source = { registry = "https://pypi.org/simple" }
@@ -521,6 +530,7 @@ dependencies = [
     { name = "cameo" },
     { name = "cobra" },
     { name = "cplex" },
+    { name = "docplex" },
     { name = "geckopy" },
     { name = "ipykernel" },
     { name = "jupyter" },
@@ -535,6 +545,7 @@ requires-dist = [
     { name = "cameo", specifier = ">=0.11.2" },
     { name = "cobra", specifier = "==0.27.0" },
     { name = "cplex", specifier = ">=22.1.2.0" },
+    { name = "docplex", specifier = ">=2.29.245" },
     { name = "geckopy", directory = "geckopy" },
     { name = "ipykernel", specifier = ">=6.29.5" },
     { name = "jupyter", specifier = ">=1.1.1" },
