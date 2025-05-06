@@ -32,7 +32,13 @@ def model_preparation (model_name):
     ori_model = cobra.io.load_matlab_model(model_name)
     model = ori_model.copy()
     model.solver = "cplex"
-    
+    for rxn in model.reactions:
+        # 下限が None または −inf なら、有限値に設定
+        if rxn.lower_bound is None or rxn.lower_bound < -1e6:
+            rxn.lower_bound = -1000.0
+        # 上限が None または +inf なら、有限値に設定
+        if rxn.upper_bound is None or rxn.upper_bound > 1e6:
+            rxn.upper_bound = 1000.0
     #
     # As mentioned in the third step of README.md file, the medium culture should be specified in the following lines.
     # すべての可逆型取り込み反応 (uptake) をいったん閉じる
