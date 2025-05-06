@@ -18,8 +18,8 @@ def isGuaranteedSolution(X, model):
     # As mentioned in the 4th step of README.md file, the desired chemical and biomass (and their threshold) reactions should be defined in the following lines.
     chemical = "r_1761" # ethanol
     biomass = "r_2111"
-    Th_chemical = 8.0
-    Th_biomass = 0.5
+    Th_chemical = 20.0
+    Th_biomass = 0.2
     #
     #
    
@@ -37,7 +37,7 @@ def isGuaranteedSolution(X, model):
         return
 
     # 閾値チェックとXへの格納
-    if (fva_result['minimum'][chemical] >Th_chemical and fva_result['minimum'][biomass] > Th_biomass):
+    if (fva_result['minimum'][chemical] > Th_chemical and fva_result['minimum'][biomass] > Th_biomass):
             X.chemical = fva_result['minimum'][chemical]
             X.biomass = fva_result['minimum'][biomass]
 

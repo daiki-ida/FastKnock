@@ -9,7 +9,7 @@ from identifyMaximizedSolution import isMaximizedSolution
 from identifyMaximizedSolution import setSolution
 from identifyGuaranteedSolution import  isGuaranteedSolution
 
-def constructSubTree (X, target_level, checked, queue, solution, model, Removable,all_fba_call, coKnockoutRxns, guaranteed_flag, guaranteed_solution ):
+def constructSubTree (X, target_level, checked, queue, solution, model, Removable,all_fba_call, coKnockoutRxns, guaranteed_flag, guaranteed_solution):
 
     current_level = X.level
     next_level = int(current_level) + 1
