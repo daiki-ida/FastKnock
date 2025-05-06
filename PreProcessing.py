@@ -5,9 +5,9 @@
 
 
 
-import cobra.test
 import time
 import numpy as np
+import cobra
 
 #Removing blocked reactions
 def remove_blocked_rxn(model):
@@ -24,7 +24,7 @@ def remove_blocked_rxn(model):
 def essential_reaction(model):
     
     essential_rxn = []    
-    for  i in model.reactions:
+    for i in model.reactions:
         
         lb = model.reactions[model.reactions.index(i)].lower_bound
         ub = model.reactions[model.reactions.index(i)].upper_bound
@@ -38,9 +38,12 @@ def essential_reaction(model):
         solutionKO_i  = model.optimize()
         if (solutionKO_i.objective_value < 0.01) or (np.isnan(solutionKO_i.objective_value)) :
             essential_rxn.append(i.id)
-            
-        model.reactions[model.reactions.index(i)].lower_bound = lb
-        model.reactions[model.reactions.index(i)].upper_bound = ub        
+        
+        # restore original bounds safely:
+        model.reactions[model.reactions.index(i)].upper_bound = ub # 1) 上限を先に復元
+        if model.reactions[model.reactions.index(i)].upper_bound < lb:
+            model.reactions[model.reactions.index(i)].upper_bound = lb # 2) 上限が下限より低ければ、上限を下限値まで引きあげ
+        model.reactions[model.reactions.index(i)].lower_bound = lb # 3) 最後に下限を復元
             
     return essential_rxn
 

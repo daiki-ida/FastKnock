@@ -35,7 +35,7 @@ def identifyTargetSpace(X, model, Removable, coKnockoutRxns):
 
     if (X.flux_dist != 0):
         if (X.flux_dist.status != 0) or (X.flux_dist.status == "optimal") :
-            for key,value in X.flux_dist.fluxes.iteritems():
+            for key,value in X.flux_dist.fluxes.items():
                 if abs(float(value)) > 1e-09 and key in Removable :
                     X.target_space.append(key)
 

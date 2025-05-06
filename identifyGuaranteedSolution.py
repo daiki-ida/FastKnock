@@ -8,15 +8,15 @@ def isGuaranteedSolution(X, model):
 
     #
     # As mentioned in the 4th step of README.md file, the desired chemical and biomass (and their threshold) reactions should be defined in the following lines.
-    chemical = "EX_succ(e)"
-    biomass = "BiomassEcoli"
-    Th_chemical = 0.64
-    Th_biomass = 0.01
+    chemical = "r_1761" # ethanol
+    biomass = "r_2111"
+    Th_chemical = 8.0
+    Th_biomass = 0.1
     #
     #
    
    
-    fva_result = flux_variability_analysis(model , model.reactions ,fraction_of_optimum=0.95)
+    fva_result = flux_variability_analysis(model, None, loopless = False, fraction_of_optimum=0.99, pfba_factor = 1.1, processes = 8)
 
     if (fva_result['minimum'][chemical] >Th_chemical and fva_result['minimum'][biomass] > Th_biomass):
             X.chemical = fva_result['minimum'][chemical]

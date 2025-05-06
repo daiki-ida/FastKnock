@@ -4,9 +4,10 @@
     *** Each Process writes its solutions into the separate files.
 """
 
+# 実行は FastKnock の仮想環境に入った後 (. .venv/bin/activate), uv run FastKnock.py
+
 from Node import Node
 import PreProcessing as PreProc
-import cobra.test
 from identifyTargetSpace import identifyTargetSpace
 from constructSubTree import constructSubTree
 from traverseTree import procTraverseTree
@@ -14,6 +15,7 @@ import sys
 import multiprocessing
 from findingCoKnockOut import findingCoKnockoutRxns
 import mergeFile 
+import cobra
 
 
 
@@ -27,19 +29,44 @@ def construct_data_structure (number):
     * coKnockoutRxns sets are obtained in this method
 """
 def model_preparation (model_name):
-    model = cobra.io.load_matlab_model(model_name)
-    model.solver = "glpk"
+    ori_model = cobra.io.load_matlab_model(model_name)
+    model = ori_model.copy()
+    model.solver = "cplex"
     
-      
     #
     # As mentioned in the third step of README.md file, the medium culture should be specified in the following lines.
-    model.reactions[model.reactions.index("EX_o2(e)")].lower_bound = 0
-    model.reactions[model.reactions.index("EX_o2(e)")].upper_bound = 0
-
-    model.reactions[model.reactions.index("EX_glc(e)")].lower_bound = -10
-    model.reactions[model.reactions.index("EX_glc(e)")].upper_bound = 0
-    #
-    #
+    # すべての可逆型取り込み反応 (uptake) をいったん閉じる
+    for ex_rxn in model.exchanges:
+        if "_REV" in ex_rxn.id:
+            ex_rxn.bounds = 0.0, 0.0
+    # 各種排出反応を調整
+    model.reactions.r_1992.bound = 0.0, 0.0 # oxygen
+    model.reactions.r_1714.bound = 0.0, 0.0 # glucose
+    model.reactions.r_1718.bound = 0.0, 0.0 # xylose
+    model.reactions.r_1761.upper_bound = 1000.0 # ethanol
+    # 各種反応の制約を定義
+    model.reactions.r_2111.bounds = 0.0, 1000.0 # biomass reacion
+    model.reactions.r_1714_REV.bounds = 0.0, 10.0 # glucose exchange
+    model.reactions.r_1718_REV.bounds = 0.0, 10.0 # xylose exchange
+    model.reactions.r_1093No1.bounds = 0.0, 1000.0 # xylose reductase
+    model.reactions.r_2104_REV.bounds = 0.0, 0.0 # xylitol exchange
+    model.reactions.r_1092No1.bounds = 0.0, 1000.0 # xylitol dehydrogenase
+    model.reactions.r_4490.bounds = 0.0, 1000.0 # xylulose⇒xylitol
+    model.reactions.r_1654_REV.bounds = 0.0, 1000.0 # ammonium exchange
+    model.reactions.r_1992_REV.bounds = 0.0, 10.0 # oxygen exchange
+    model.reactions.r_1832_REV.bounds = 0.0, 1000.0 # proton exchange
+    model.reactions.r_1861_REV.bounds = 0.0, 1000.0 # iron(2+) exchange
+    model.reactions.r_2005_REV.bounds = 0.0, 1000.0 # phosphate exchange
+    model.reactions.r_2020_REV.bounds = 0.0, 1000.0 # potassium exchange
+    model.reactions.r_2049_REV.bounds = 0.0, 1000.0 # sodium exchange
+    model.reactions.r_2060_REV.bounds = 0.0, 1000.0 # sulphate exchange
+    model.reactions.r_2100_REV.bounds = 0.0, 1000.0 # water exchange
+    model.reactions.r_4593_REV.bounds = 0.0, 1000.0 # chloride change
+    model.reactions.r_4594_REV.bounds = 0.0, 1000.0 # Cu2(+) exchange
+    model.reactions.r_4595_REV.bounds = 0.0, 1000.0 # Mn(2+) exchange
+    model.reactions.r_4596_REV.bounds = 0.0, 1000.0 # Zn(2+) exchange
+    model.reactions.r_4597_REV.bounds = 0.0, 1000.0 # Mg(2+) exchange
+    model.reactions.r_4600_REV.bounds = 0.0, 1000.0 # Ca(2+) exchange
       
 
     coKnockoutRxns = findingCoKnockoutRxns(model)
@@ -86,7 +113,7 @@ def main():
     target_level = input("Enter your desired level (maximum number of simultaneous reaction knockout ):  ")
 
     guaranteed_flag = 0
-    if ( int(input("If you want to use FastKnock in guaranteed mood, press 1 othrwise press 0: ")) == 1 ):
+    if ( int(input("If you want to use FastKnock in guaranteed mood, press 1 othrwise press 0: ")) == 1):
         guaranteed_flag = 1
 
     num_of_processes = input("Enter number of proccessor cores: ")
@@ -98,7 +125,7 @@ def main():
 
     #  
     #As mentioned in the second step of README.md file, the name of model should be replaced in the next line.
-    model, Removable, coKnockoutRxns = model_preparation ("iJR904.mat")
+    model, Removable, coKnockoutRxns = model_preparation("ecYeastGEM_batch (CellFactory-ecYeastGEM).mat")
 
     root = Node (0,[] , [] , [],0,0)
     root = identifyTargetSpace(root, model, Removable,coKnockoutRxns)
