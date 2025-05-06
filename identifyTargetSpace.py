@@ -23,10 +23,9 @@ def identifyTargetSpace(X, model, Removable, coKnockoutRxns):
     
     for rxn in X.deleted_rxns:
         if rxn in model.reactions:
-            LB = model.reactions[model.reactions.index(rxn)].lower_bound
-            UB = model.reactions[model.reactions.index(rxn)].upper_bound
-            model.reactions[model.reactions.index(rxn)].lower_bound = 0
-            model.reactions[model.reactions.index(rxn)].upper_bound = 0
+            LB = model.reactions[model.reactions.get_by_id(rxn)].lower_bound
+            UB = model.reactions[model.reactions.get_by_id(rxn)].upper_bound
+            model.reactions[model.reactions.get_by_id(rxn)].bounds = 0.0, 0.0
             deleted_rxns_details[rxn] = [LB, UB]
         else:
             X.deleted_rxns.remove(rxn)
@@ -41,8 +40,7 @@ def identifyTargetSpace(X, model, Removable, coKnockoutRxns):
 
     #Restore  model
     for key, value in deleted_rxns_details.items():
-        model.reactions[model.reactions.index(key)].lower_bound = value[0]
-        model.reactions[model.reactions.index(key)].upper_bound = value[1]
+        model.reactions[model.reactions.get_by_id(key)].bounds = value[0], value[1]
 
     return X
     
